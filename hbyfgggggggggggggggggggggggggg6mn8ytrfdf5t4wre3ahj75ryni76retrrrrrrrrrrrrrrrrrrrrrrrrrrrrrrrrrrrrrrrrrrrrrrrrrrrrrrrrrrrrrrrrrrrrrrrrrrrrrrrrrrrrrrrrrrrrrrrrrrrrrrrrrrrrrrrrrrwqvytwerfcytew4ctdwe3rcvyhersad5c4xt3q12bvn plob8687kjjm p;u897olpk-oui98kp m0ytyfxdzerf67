@@ -1,0 +1,769 @@
+------ Artem Hub
+------ Made By ArtemGuy#5450
+if game.PlaceId == 2686500207 then
+Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FixxyGuy/FixxyGuy/main/Artem%20Hub%20(Kavo)"))()
+Window = Library.CreateLib("Artem Hub (A Bizarre Day)", "Ocean")
+
+local Tab = Window:NewTab("Free Scripts")
+local FreeSection = Tab:NewSection("Free Scripts")
+local Tab = Window:NewTab("Local Player")
+local LocaleSection = Tab:NewSection("Local Player")
+local Tab = Window:NewTab("Main")
+local MaineSection = Tab:NewSection("Main")
+LocaleSection:NewSlider("WalkSpeed", "increases your speed", 250, 16, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+LocaleSection:NewSlider("JumpPower", "increases your Jump", 500, 50, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+FreeSection:NewButton("Standless Over Heaven", "Already Leaked!", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/FixxyGuy/FixxyGuy/main/SOH"))()
+end)
+
+FreeSection:NewButton("Dio", "Spec", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/XQhkfmLQ"))()
+end)
+
+FreeSection:NewButton("Gon", "Final Rock!", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/jznJhqWB"))()
+end)
+
+FreeSection:NewButton("Shiki Fujin", "Spec", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/rvjdj2ui"))()
+end)
+
+FreeSection:NewButton("Rikujokoro (Need Anubis)", "Spec", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/qBuEbuXe"))()
+end)
+
+local Tab = Window:NewTab("Paid Scripts")
+local PaidSection = Tab:NewSection("Paid Scripts")
+
+PaidSection:NewButton("SHGR (Need HG)", "one of the best abd scripts", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/FixxyGuy/FixxyGuy/main/byrdbyfrdnmfrniturfgvtreawd4waq7nr6degv6e45r"))()
+end)
+MaineSection:NewButton("Artem Hub Made By ArtemGuy#5450", "AYO!", function()
+    print("Artem Hub")
+    end)
+PaidSection:NewButton("Jiren Script", "Paid Spec", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/FixxyGuy/FixxyGuy/main/jiernutydrvyrthgf"))()
+end)
+PaidSection:NewButton("Remastered SHGR", "Support All Stands", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/FixxyGuy/FixxyGuy/main/hbyfgggggggggggggggggggggggggg6mn8ytrfdf5t4wre3ahj75ryni76ret"))()
+end)
+end
+if game.PlaceId == 155615604 then
+Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FixxyGuy/FixxyGuy/main/Artem%20Hub%20(Kavo)"))()
+Window = Library.CreateLib("Artem Hub (Prison Life)", "Synapse")
+local Tab = Window:NewTab("Main")
+local MainSection = Tab:NewSection("Main")
+local Tab = Window:NewTab("Local Player")
+local LocalSection = Tab:NewSection("Local Player")
+local Tab = Window:NewTab("Another Scripts")
+local ScSection = Tab:NewSection("Another Scripts")
+LocalSection:NewSlider("WalkSpeed", "increases your speed", 500, 16, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+LocalSection:NewSlider("JumpPower", "increases your Jump", 1000, 50, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+MainSection:NewButton("Artem Hub Made By ArtemGuy#5450", "AYO!", function()
+    print("Artem Hub")
+    end)
+MainSection:NewDropdown("Give Gun", "Gives The Player Weapons", {"M9", "Remington 870", "AK-47"}, function(v)
+        local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver[v].ITEMPICKUP
+        local Event = game:GetService("Workspace").Remote.ItemHandler
+        Event:InvokeServer(A_1)
+end)
+ScSection:NewButton("Owl Hub", "Owl Hub made by CriShoux.", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))()
+end)
+ScSection:NewButton("Admin Commands", "Made By Septex.", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/XTheMasterX/Scripts/Main/PrisonLife"))()
+end)
+
+MainSection:NewDropdown("Weapons Mod", "Makes Any Weapons OP", {"M9", "Remington 870", "AK-47"}, function(v)
+        local module = nil
+        if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(v) then
+            module = require(game:GetService("Players").LocalPlayer.Backpack[v].GunStates)
+        elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild(v) then
+            module = require(game:GetService("Players").LocalPlayer.Character[v].GunStates)
+        end
+        if module ~= nil then
+        module["MaxAmmo"] = math.huge
+        module["CurrentAmmo"] = math.huge
+        module["StoredAmmo"] = math.huge
+        module["FireRate"] = 0.0000001
+        module["Spread"] = 0
+        module["Range"] = math.huge
+        module["Bullets"] = 10
+        module["ReloadTime"] = 0.0000001
+        module["AutoFire"] = true
+        end
+end)
+end
+
+
+
+if game.PlaceId == 9203864304 then
+Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FixxyGuy/FixxyGuy/main/Artem%20Hub%20(Kavo)"))()
+Window = Library.CreateLib("Artem Hub (Raise A Floppa)", "GrapeTheme")
+local Tab = Window:NewTab("Teleports")
+local TPSection = Tab:NewSection("Teleports")
+local Tab = Window:NewTab("Main")
+local Main3Section = Tab:NewSection("Main")
+
+TPSection:NewButton("Go to Floppa Food", "Teleport lol", function()
+    game.Players.LocalPlayer.Character.Humanoid.WalkToPoint = Vector3.new(-38.03987503051758, 9.295164108276367, -19.16820526123047)
+		local args = {
+			[1] = "Floppa Food"
+		}
+end)
+
+TPSection:NewButton("Go to Door", "Teleport lol", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-81.50403594970703, 9.279949188232422, -58.09929656982422)
+		wait(4)
+end)
+
+Main3Section:NewButton("Artem Hub Made By ArtemGuy#5450", "AYO!", function()
+    print("Artem Hub")
+end)
+
+
+Main3Section:NewSlider("WalkSpeed", "increases your speed", 1000, 16, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+Main3Section:NewSlider("JumpPower", "increases your Jump", 500, 50, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+end
+if game.PlaceId == 394773622 then
+Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FixxyGuy/FixxyGuy/main/Artem%20Hub%20(Kavo)"))()
+Window = Library.CreateLib("Artem Hub (The Slimes!)", "Sentinel")
+local Tab = Window:NewTab("Functions")
+local FHSection = Tab:NewSection("Functions")
+local Tab = Window:NewTab("Local Player")
+local LLLSection = Tab:NewSection("Local Player")
+local Tab = Window:NewTab("Gears")
+local GGSection = Tab:NewSection("Gears")
+local Tab = Window:NewTab("Main")
+local GGGSection = Tab:NewSection("Main")
+
+
+FHSection:NewButton("Infinite Money", "With this function you can get 999999999999 Money!", function()
+    	local A_1 = game.Players.LocalPlayer.leaderstats.Coins
+local A_2 = -999999999999
+local A_3 = "skill0"
+local Event = game:GetService("Workspace").DoShopPurchase
+Event:InvokeServer(A_1, A_2, A_3)
+end)
+
+LLLSection:NewSlider("WalkSpeed", "increases your speed", 500, 16, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+LLLSection:NewSlider("JumpPower", "increases your Jump", 1000, 50, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+LLLSection:NewDropdown("Choose bow", "You can get the bow you want", {"Tornado Bow", "Thunder Bow", "Mr.Cube Bow"}, function(u)
+    local A_1 = game.Players.LocalPlayer.BowType
+local A_2 = (u)
+local Event = game:GetService("Workspace").ChangeValue
+Event:InvokeServer(A_1, A_2)
+end)
+
+LLLSection:NewDropdown("Choose arrow", "You can get the arrow you want", {"Arrow 9", "Arrow 10", "Arrow 11"}, function(u)
+    	local A_1 = game.Players.LocalPlayer.ArrowType
+local A_2 = (u)
+local Event = game:GetService("Workspace").ChangeValue
+Event:InvokeServer(A_1, A_2)
+end)
+
+GGSection:NewButton("Bear Traps", "Gear", function()
+    	local A_1 = game.Players.LocalPlayer.leaderstats.Coins
+local A_2 = 0
+local A_3 = "Chest3"
+local A_4 = "BearTrap"
+local Event = game:GetService("Workspace").DoShopPurchase
+Event:InvokeServer(A_1, A_2, A_3, A_4)
+end)
+
+GGSection:NewButton("Mine Bomb", "Gear", function()
+	local A_1 = game.Players.LocalPlayer.leaderstats.Coins
+local A_2 = 0
+local A_3 = "Chest3"
+local A_4 = "MineBomb"
+local Event = game:GetService("Workspace").DoShopPurchase
+Event:InvokeServer(A_1, A_2, A_3, A_4)
+end)
+
+GGSection:NewButton("Caltrops", "Gear", function()
+	local A_1 = game.Players.LocalPlayer.leaderstats.Coins
+local A_2 = 0
+local A_3 = "Chest3"
+local A_4 = "Caltrops"
+local Event = game:GetService("Workspace").DoShopPurchase
+Event:InvokeServer(A_1, A_2, A_3, A_4)
+end)
+
+GGSection:NewButton("Spike Grenade", "Gear", function()
+	local A_1 = game.Players.LocalPlayer.leaderstats.Coins
+local A_2 = 0
+local A_3 = "Chest3"
+local A_4 = "SpikeGrenade"
+local Event = game:GetService("Workspace").DoShopPurchase
+Event:InvokeServer(A_1, A_2, A_3, A_4)
+end)
+
+GGSection:NewButton("R80", "Gear", function()
+	local A_1 = game.Players.LocalPlayer.leaderstats.Coins
+local A_2 = 0
+local A_3 = "Chest3"
+local A_4 = "R80"
+local Event = game:GetService("Workspace").DoShopPurchase
+Event:InvokeServer(A_1, A_2, A_3, A_4)
+end)
+
+GGGSection:NewButton("Artem Hub Made By ArtemGuy#5450", "AYO!", function()
+    print("Artem Hub")
+end)
+
+GGGSection:NewButton("Bypass Anti Exploit", "Artem Hub Try Bypass It.", function()
+    local antiexploit = game.Players.LocalPlayer.PlayerScripts.AntiExploitLocalScript
+    
+    antiexploit:Destroy()
+    print("Artem Hub succesfully Bypass Anti Exploit")
+end)
+end
+
+
+
+if game.PlaceId == 1962086868 then
+Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FixxyGuy/FixxyGuy/main/Artem%20Hub%20(Kavo)"))()
+Window = Library.CreateLib("Artem Hub (Tower of Hell)", "DarkTheme")
+local Tab = Window:NewTab("Main")
+local GGGGSection = Tab:NewSection("Main")
+local Tab = Window:NewTab("Functions")
+local GLSection = Tab:NewSection("Functions")
+local Tab = Window:NewTab("Local Player")
+local GLLSection = Tab:NewSection("Local Player")
+local Tab = Window:NewTab("Another Scripts")
+local GMMSection = Tab:NewSection("Another Scripts")
+
+GGGGSection:NewButton("Bypass Anti Exploit", "Artem Hub Try Bypass It.", function()
+     local reg = getreg()
+ 
+    for i, Function in next, reg do
+        if type(Function) == 'function' then
+            local info = getinfo(Function)
+ 
+            if info.name == 'kick' then
+                if (hookfunction(info.func, function(...)end)) then
+                    print'Artem Hub succesfully Bypass Anti Exploit'
+                else
+                    print'failed to Bypass'
+                end
+            end
+        end
+    end
+    local playerscripts = game:GetService'Players'.LocalPlayer.PlayerScripts
+ 
+    local script1 = playerscripts.LocalScript
+    local script2 = playerscripts.LocalScript2
+ 
+    local script1signal = script1.Changed
+    local script2signal = script2.Changed
+ 
+    for i, connection in next, getconnections(script1signal) do
+        connection:Disable()
+    end
+    for i, connection in next, getconnections(script2signal) do
+        connection:Disable()
+    end
+ 
+    script1:Destroy()
+    script2:Destroy()
+end)
+
+
+GGGGSection:NewButton("Artem Hub Made By ArtemGuy#5450", "AYO!", function()
+    print("Artem Hub")
+end)
+
+GLSection:NewButton("Get Items", "Lol Why not", function()
+    for _,e in pairs(game.Players.LocalPlayer.Backpack:GetDescendants()) do
+        if e:IsA("Tool") then
+        e:Destroy()
+        end
+        end
+        wait() 
+        for _,v in pairs(game.ReplicatedStorage.Gear:GetDescendants()) do
+        if v:IsA("Tool") then
+        local CloneThings = v:Clone()
+        wait()
+        CloneThings.Parent = game.Players.LocalPlayer.Backpack
+ 
+        end
+        end
+end)
+
+GLSection:NewButton("God Mode", "Deleting all kill parts in the game", function()
+    for i,v in pairs(game:GetService("Workspace").tower:GetDescendants()) do
+        if v:IsA("BoolValue") and v.Name == "kills" then
+            v.Parent:Destroy()
+        end
+    end
+end)
+
+GGGGSection:NewButton("Go to The End", "End", function()
+       local endzone = game.Workspace.tower.sections.finish.FinishGlow.CFrame
+ 
+    local player = game.Players.LocalPlayer.Character
+    player.HumanoidRootPart.CFrame = endzone
+end)
+
+GLLSection:NewSlider("WalkSpeed", "increases your speed", 250, 16, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+GLLSection:NewSlider("JumpPower", "increases your Jump", 500, 50, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+GLLSection:NewButton("Infinite Jumps", "Simple Script", function()
+    local infijump = true
+    game:GetService("UserInputService").JumpRequest:connect(function()
+        if infijump then
+            game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass"Humanoid":ChangeState("Jumping")
+        end
+ end)
+end)
+
+GMMSection:NewButton("Infinite Yield FE", "A Good Script for trolling", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+end
+
+if game.PlaceId == 5683833663 then
+Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FixxyGuy/FixxyGuy/main/Artem%20Hub%20(Kavo)"))()
+Window = Library.CreateLib("Artem Hub (BAD GAME)", "DarkTheme")
+local Tab = Window:NewTab("Main")
+local BRSection = Tab:NewSection("Main")
+local Tab = Window:NewTab("Trolling")
+local UHSection = Tab:NewSection("Trolling")
+
+UHSection:NewButton("Infinite Yield FE", "A Good Script for trolling", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+UHSection:NewButton("FE Invisible", "A Good Script for trolling", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/FixxyGuy/FixxyGuy/main/for%20artem%20hub'))()
+end)
+
+BRSection:NewButton("Artem Hub Made By ArtemGuy#5450", "AYO!", function()
+    print("Artem Hub")
+end)
+
+UHSection:NewButton("FE Big Head", "USE R15 AND RTHRO", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/sysGhost-aka-BiKode/BigHeadV2/main/BigHeadV2-r15"))()
+end)
+end
+
+
+if game.PlaceId == 602853446 then
+Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FixxyGuy/FixxyGuy/main/Artem%20Hub%20(Kavo)"))()
+Window = Library.CreateLib("Artem Hub (Undertale!)", "Sentinel")
+local Tab = Window:NewTab("Main")
+local BRRSection = Tab:NewSection("Main")
+local Tab = Window:NewTab("Functions")
+local UHHSection = Tab:NewSection("Functions")
+local Tab = Window:NewTab("Local Player")
+local UHHHSection = Tab:NewSection("Local Player")
+
+BRRSection:NewButton("Artem Hub Made By ArtemGuy#5450", "AYO!", function()
+    print("Artem Hub")
+end)
+
+BRRSection:NewButton("Bypass Anti Exploit", "Artem Hub Try Bypass It.", function()
+      local reg = getreg()
+ 
+    for i, Function in next, reg do
+        if type(Function) == 'function' then
+            local info = getinfo(Function)
+ 
+            if info.name == 'kick' then
+                if (hookfunction(info.func, function(...)end)) then
+                    print'Artem Hub succesfully Bypass Anti Exploit'
+                else
+                    print'failed to Bypass'
+                end
+            end
+        end
+    end
+    local playergui = game:GetService'Players'.LocalPlayer.PlayerGui
+ 
+    local script1 = playergui.scriptt
+    local script2 = playergui.script
+    local script3 = playergui.ScriptOne
+    local script4 = playergui.ScriptTwo
+    local script5 = playergui.ScriptThree
+    local script6 = playergui.ScriptFour
+    local AntiDupe = playergui.ItemDupeCheck
+ 
+    local script1signal = script1.Changed
+    local script2signal = script2.Changed
+    local script3signal = script3.Changed
+    local script4signal = script4.Changed
+    local script5signal = script5.Changed
+    local script6signal = script6.Changed
+    local scriptDupesignal = AntiDupe.Changed
+ 
+    for i, connection in next, getconnections(script1signal) do
+        connection:Disable()
+    end
+    for i, connection in next, getconnections(script2signal) do
+        connection:Disable()
+    end
+    for i, connection in next, getconnections(script3signal) do
+        connection:Disable()
+    end
+    for i, connection in next, getconnections(script4signal) do
+        connection:Disable()
+    end
+    for i, connection in next, getconnections(script5signal) do
+        connection:Disable()
+    end
+    for i, connection in next, getconnections(script6signal) do
+        connection:Disable()
+    end
+    for i, connection in next, getconnections(scriptDupesignal) do
+        connection:Disable()
+    end
+ 
+    script1:Destroy()
+    script2:Destroy()
+    script3:Destroy()
+    script4:Destroy()
+    script5:Destroy()
+    script6:Destroy()
+    AntiDupe:Destroy()
+end)
+
+UHHHSection:NewSlider("WalkSpeed", "increases your speed", 250, 16, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+UHHSection:NewSlider("JumpPower", "increases your Jump", 500, 50, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+UHHSection:NewButton("Btools", "Btools Is Win", function()
+    c = Instance.new("HopperBin", game:GetService("Players").LocalPlayer.Backpack)
+    c.BinType = Enum.BinType.Hammer
+    c = Instance.new("HopperBin", game:GetService("Players").LocalPlayer.Backpack)
+    c.BinType = Enum.BinType.Clone
+    c = Instance.new("HopperBin", game:GetService("Players").LocalPlayer.Backpack)
+    c.BinType = Enum.BinType.Grab
+end)
+end
+
+if game.PlaceId == 7380258806 then
+Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FixxyGuy/FixxyGuy/main/Artem%20Hub%20(Kavo)"))()
+Window = Library.CreateLib("Artem Hub (Troll Face rp)", "Sentinel")
+local Tab = Window:NewTab("Main")
+local BRRRSection = Tab:NewSection("Main")
+local Tab = Window:NewTab("Local Player")
+local UHHHHSection = Tab:NewSection("Local Player")
+
+UHHHHSection:NewSlider("WalkSpeed", "increases your speed", 250, 16, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+UHHHHSection:NewSlider("JumpPower", "increases your Jump", 500, 50, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+UHHHHSection:NewButton("Btools", "Btools Is Win", function()
+    c = Instance.new("HopperBin", game:GetService("Players").LocalPlayer.Backpack)
+    c.BinType = Enum.BinType.Hammer
+    c = Instance.new("HopperBin", game:GetService("Players").LocalPlayer.Backpack)
+    c.BinType = Enum.BinType.Clone
+    c = Instance.new("HopperBin", game:GetService("Players").LocalPlayer.Backpack)
+    c.BinType = Enum.BinType.Grab
+end)
+
+BRRRSection:NewButton("Artem Hub Made By ArtemGuy#5450", "AYO!", function()
+    print("Artem Hub")
+end)
+
+BRRRSection:NewButton("Idea By HyperDanila#7152", "Sub to HyperDanila", function()
+    print("Artem Hub")
+end)
+end
+
+
+if game.PlaceId == 7484534949 then
+Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FixxyGuy/FixxyGuy/main/Artem%20Hub%20(Kavo)"))()
+Window = Library.CreateLib("Artem Hub (Trollge Universe Incident)", "Sentinel")
+local Tab = Window:NewTab("Main")
+local BRRRRSection = Tab:NewSection("Main")
+local Tab = Window:NewTab("Local Player")
+local UHHHHHSection = Tab:NewSection("Local Player")
+local Tab = Window:NewTab("Functions")
+local UHHHSection = Tab:NewSection("Functions")
+
+BRRRRSection:NewButton("Artem Hub Made By ArtemGuy#5450", "AYO!", function()
+    print("Artem Hub")
+end)
+
+BRRRRSection:NewButton("Idea By HyperDanila#7152", "Sub to HyperDanila", function()
+    print("Artem Hub")
+end)
+
+UHHHHHSection:NewSlider("WalkSpeed", "increases your speed", 250, 16, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+UHHHHHSection:NewSlider("JumpPower", "increases your Jump", 500, 50, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+UHHHSection:NewToggle("Chest Auto Farm", "Simple Auto Farm", function(state)
+    if state then
+  getgenv().ChestFarm = true 
+spawn(function()
+    while ChestFarm do wait()
+        pcall(function()
+            for i,v in pairs(game:GetService("Workspace").chests:GetDescendants()) do
+                if v:IsA("Part") then
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                    fireproximityprompt(v.ProximityPrompt)
+                end
+            end
+        end)
+    end
+end)
+    else
+        getgenv().ChestFarm = false
+        
+        spawn(function()
+    while ChestFarm do wait()
+        pcall(function()
+            for i,v in pairs(game:GetService("Workspace").chests:GetDescendants()) do
+                if v:IsA("Part") then
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                    fireproximityprompt(v.ProximityPrompt)
+                end
+            end
+        end)
+    end
+end)
+    end
+end)
+
+UHHHHHSection:NewButton("Btools", "Btools Is Win", function()
+    c = Instance.new("HopperBin", game:GetService("Players").LocalPlayer.Backpack)
+    c.BinType = Enum.BinType.Hammer
+    c = Instance.new("HopperBin", game:GetService("Players").LocalPlayer.Backpack)
+    c.BinType = Enum.BinType.Clone
+    c = Instance.new("HopperBin", game:GetService("Players").LocalPlayer.Backpack)
+    c.BinType = Enum.BinType.Grab
+end)
+
+UHHHSection:NewToggle("Items Auto Farm", "Simple Auto Farm", function(state)
+    if state then
+  getgenv().ItemFarm = true 
+spawn(function()
+    while ItemFarm do wait()
+        pcall(function()
+            for i,v in pairs(game:GetService("Workspace").other:GetDescendants()) do
+                if v:IsA("Part") then
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                    fireproximityprompt(v.ProximityPrompt)
+                end
+            end
+        end)
+    end
+end)
+    else
+        getgenv().ItemFarm = false
+        
+        spawn(function()
+    while ItemFarm do wait()
+        pcall(function()
+            for i,v in pairs(game:GetService("Workspace").other:GetDescendants()) do
+                if v:IsA("Part") then
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                    fireproximityprompt(v.ProximityPrompt)
+                end
+            end
+        end)
+    end
+end)
+    end
+end)
+end
+------ ArtemGuy Leaked so many paid scripts!
+if game.PlaceId == 3198259055 then
+Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FixxyGuy/FixxyGuy/main/Artem%20Hub%20(Kavo)"))()
+Window = Library.CreateLib("Artem Hub (SoulShatters Test Place)", "Ocean")
+local Tab = Window:NewTab("Main")
+local AESection = Tab:NewSection("Main")
+local Tab = Window:NewTab("Paid Scripts")
+local AEESection = Tab:NewSection("Paid Scripts")
+local Tab = Window:NewTab("Free Scripts")
+local AEEESection = Tab:NewSection("Free Scripts")
+local Tab = Window:NewTab("Private Scripts")
+local AGSection = Tab:NewSection("Private Scripts")
+
+AESection:NewButton("Artem Hub Made By ArtemGuy#5450", "AYO!", function()
+    print("Artem Hub")
+end)
+
+AESection:NewButton("Idea By HyperDanila#7152", "Sub to HyperDanila", function()
+    print("Artem Hub")
+end)
+
+AESection:NewButton("special thanks to sp#6781", "Nice Dude", function()
+    print("Artem Hub")
+end)
+
+AEESection:NewButton("The Imitator (Use in Menu)", "Leaked by ArtemGuy", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/FixxyGuy/FixxyGuy/main/NUITYFDVG%20UHTFWGHJODGOIAJURDIO"))()
+end)
+
+AEEESection:NewButton("The Fallen (Use on Menu)", "Paid But this leaked", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/FixxyGuy/FixxyGuy/main/yrhyttyfhuyytf"))()
+end)
+
+AGSection:NewButton("generic gt chara AYOO (Use on Menu)", "Private", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/FixxyGuy/FixxyGuy/main/AUGHH"))()
+end)
+
+AEEESection:NewButton("Glitch 404 (Use on Menu)", "Leaked!1!!1", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/FixxyGuy/FixxyGuy/main/Paid%20i%20think"))()
+end)
+
+AGSection:NewButton("Unnamed Chara (Use on Menu)", "Made by sp#6781", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/UnnamedAccountLol1/Roblox-Stuff/master/Unnamed%20Chara%20script%20sp%236781.lua"))()
+end)
+
+AEEESection:NewButton("Doom Slayer (Use on Menu)", "Leaked too", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/FixxyGuy/FixxyGuy/main/AAA"))()
+end)
+
+AEEESection:NewButton("Star Glitcher (Use on Menu)", "Glitch 404 but 😳", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/FixxyGuy/FixxyGuy/main/AAAA"))()
+end)
+end
+
+------ Event Gaming
+if game.PlaceId == 5681588623 then
+Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/FixxyGuy/FixxyGuy/main/Artem%20Hub%20(Kavo)"))()
+Window = Library.CreateLib("Artem Hub (Undertale fight for love)", "Ocean")
+local Tab = Window:NewTab("Main")
+local FSection = Tab:NewSection("Main")
+local Tab = Window:NewTab("Special Characters")
+local FFSection = Tab:NewSection("Special Characters")
+local Tab = Window:NewTab("Local Player")
+local FFFSection = Tab:NewSection("Local Player")
+local Tab = Window:NewTab("Admin Characters")
+local FFFFSection = Tab:NewSection("Admin Characters")
+local Tab = Window:NewTab("Free Characters")
+local FFFFFSection = Tab:NewSection("Free Characters")
+
+FSection:NewButton("Artem Hub Made By ArtemGuy#5450", "AYO!", function()
+    print("Artem Hub")
+end)
+
+FFFSection:NewSlider("WalkSpeed", "increases your speed", 250, 16, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+FFFSection:NewSlider("JumpPower", "increases your Jump", 500, 50, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+FFSection:NewButton("Ink Sans", "Get For Free I recommend it use on sans", function()
+    game:GetService("ReplicatedStorage").InfoInkSans:FireServer()
+end)
+
+FFSection:NewButton("Last Breath", "Get For Free I recommend it use on sans", function()
+    game:GetService("ReplicatedStorage").InfoLastbreath:FireServer()
+end)
+
+FFFFSection:NewButton("Time Paradox", "Get For Free I recommend it use on sans", function()
+    game:GetService("ReplicatedStorage").InfoAdminSans:FireServer()
+end)
+
+FFSection:NewButton("Fatal Error", "Get For Free I recommend it use on sans", function()
+    game:GetService("ReplicatedStorage").InfoFatalError:FireServer()
+end)
+
+FFSection:NewButton("Sudden Changes", "Get For Free I recommend it use on sans", function()
+    game:GetService("ReplicatedStorage").InfoSuddenChanges:FireServer()
+end)
+
+FFSection:NewButton("XChara", "Get For Free I recommend it use on sans", function()
+    game:GetService("ReplicatedStorage").InfoXChara:FireServer()
+end)
+
+FFSection:NewButton("Glichtale Gaster", "Get For Free I recommend it use on sans", function()
+    game:GetService("ReplicatedStorage").InfoGTGaster:FireServer()
+end)
+
+FFSection:NewButton("Disbelief Papyrus", "Get For Free I recommend it use on sans", function()
+    game:GetService("ReplicatedStorage").InfoDisPapyrus:FireServer()
+end)
+
+FFFFFSection:NewButton("Toriel", "Get For Free I recommend it use on sans", function()
+    game:GetService("ReplicatedStorage").InfoToriel:FireServer()
+end)
+
+FFFFFSection:NewButton("Undyne", "Get For Free I recommend it use on sans", function()
+    game:GetService("ReplicatedStorage").InfoUndyne:FireServer()
+end)
+
+FFFFFSection:NewButton("Muffet", "Get For Free I recommend it use on sans", function()
+    game:GetService("ReplicatedStorage").InfoMuffet:FireServer()
+end)
+
+FFFFFSection:NewButton("Papyrus", "Get For Free I recommend it use on sans", function()
+    game:GetService("ReplicatedStorage").InfoPapyrus:FireServer()
+end)
+
+FFFFFSection:NewButton("Asgore", "Get For Free I recommend it use on sans", function()
+    game:GetService("ReplicatedStorage").InfoAsgore:FireServer()
+end)
+
+FFFFFSection:NewButton("Mettaton", "Get For Free I recommend it use on sans", function()
+    game:GetService("ReplicatedStorage").InfoMettaton:FireServer()
+end)
+
+FFFFFSection:NewButton("Sans", "Get For Free I recommend it use on sans", function()
+    game:GetService("ReplicatedStorage").InfoSans:FireServer()
+end)
+
+FFFFFSection:NewButton("Flowey", "Get For Free I recommend it use on sans", function()
+    game:GetService("ReplicatedStorage").InfoFlowey:FireServer()
+end)
+
+FFFFFSection:NewButton("Asriel", "Get For Free I recommend it use on sans", function()
+    game:GetService("ReplicatedStorage").InfoAsriel:FireServer()
+end)
+
+FFFFFSection:NewButton("Chara", "Get For Free I recommend it use on sans", function()
+    game:GetService("ReplicatedStorage").InfoChara:FireServer()
+end)
+
+FFFFFSection:NewButton("Gaster", "Get For Free I recommend it use on sans", function()
+    game:GetService("ReplicatedStorage").InfoGaster:FireServer()
+end)
+
+FFSection:NewButton("Glichtale Frisk", "Get For Free I recommend it use on sans", function()
+    game:GetService("ReplicatedStorage").InfoSpinel:FireServer()
+end)
+end
