@@ -1,0 +1,473 @@
+--[[
+
+PUBLIC SCRIPT
+Underplayer REWRITTEN
+
+creator: just a tree#0556
+
+]]
+
+local version = "v1.0.1"
+
+--script
+
+local debounce = false
+local musicnum = 1
+local uis = game:GetService("UserInputService")
+
+debounce = true
+
+game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Chat, true)
+game.Players.LocalPlayer.PlayerGui.CharacterSelection.Character.Value = "Asriel"
+wait(1)
+game.Players.LocalPlayer.Character:WaitForChild("Head"):WaitForChild("HealthBar").Frame.PName:Destroy()
+game.Players.LocalPlayer.Character:WaitForChild("Head"):WaitForChild("HealthBar").Frame.StaminaBar:Destroy()
+game.Players.LocalPlayer.Character:WaitForChild("Head"):WaitForChild("HealthBar").Frame.HealthLabel:Destroy()
+game.Players.LocalPlayer.Character:WaitForChild("Head"):WaitForChild("HealthBar").Frame.HP:Destroy()
+game.Players.LocalPlayer.Backpack:WaitForChild("Main"):WaitForChild("AsrielMoves"):WaitForChild("Animations"):WaitForChild("Walk").AnimationId = "rbxassetid://4370512420"
+game.Players.LocalPlayer.Backpack:WaitForChild("Main"):WaitForChild("AsrielMoves"):WaitForChild("Animations"):WaitForChild("WalkBack").AnimationId = "rbxassetid://4370512420"
+game.Players.LocalPlayer.Backpack:WaitForChild("Main"):WaitForChild("AsrielMoves"):WaitForChild("Animations"):WaitForChild("Idle").AnimationId = "rbxassetid://4900761581"
+game.Players.LocalPlayer.Backpack:WaitForChild("Main"):WaitForChild("AsrielMoves"):WaitForChild("Animations"):WaitForChild("Start").AnimationId = "rbxassetid://4900761581"
+game.Players.LocalPlayer.Backpack:WaitForChild("Main"):WaitForChild("AsrielMoves"):WaitForChild("Animations"):WaitForChild("Run").AnimationId = "rbxassetid://4576074471"
+game.Players.LocalPlayer.Character:WaitForChild("Head"):WaitForChild("Voice").SoundId = "rbxassetid://4459132147"
+game.Players.LocalPlayer.PlayerGui.UI.Ui:WaitForChild("MoveDebounceShower").Visible = false
+
+game.Players.LocalPlayer:WaitForChild("StarterPlaylist"):FindFirstChildOfClass("Sound").SoundId = "rbxassetid://6480235155"
+game.Players.LocalPlayer:WaitForChild("StarterPlaylist"):FindFirstChildOfClass("Sound").Looped = true
+game.Players.LocalPlayer:WaitForChild("StarterPlaylist"):FindFirstChildOfClass("Sound").Volume = 1
+
+local bypass = Instance.new("BoolValue")
+bypass.Name = "Battling"
+bypass.Parent = game.Players.LocalPlayer.Character
+
+local wspeed = 10
+local rspeed = 120
+
+game.Players.LocalPlayer.Backpack.Main:WaitForChild("WalkSpeed").Value = wspeed
+game.Players.LocalPlayer.Backpack.Main:WaitForChild("RunSpeed").Value = rspeed
+
+game.Players.LocalPlayer.Backpack.Main:WaitForChild("WalkSpeed"):GetPropertyChangedSignal("Value"):Connect(function()
+    
+    game.Players.LocalPlayer.Backpack.Main:WaitForChild("WalkSpeed").Value = wspeed
+    
+end)
+
+game.Players.LocalPlayer.Backpack.Main:WaitForChild("RunSpeed"):GetPropertyChangedSignal("Value"):Connect(function()
+    
+    game.Players.LocalPlayer.Backpack.Main:WaitForChild("RunSpeed").Value = rspeed
+    
+end)
+
+char = game.Players.LocalPlayer.Character
+spawn(function()
+    repeat wait()
+        for _,v in pairs(char:GetChildren()) do
+            if v.Name == 'DrainStamina' or v.Name == 'DrainSprint' or v.Name == 'Hit' or v.Name == 'Hitt' or v.Name == 'Damaged' or v.Name == "Reset" or v.Name == "Grounded" or v.Name == "KnockedBack" or v.Name == "StayGrounded" or v.Name == "DamagedC" then
+                v:Destroy()
+            end
+        end
+    until false
+end)
+
+game.Players.LocalPlayer.PlayerGui.UI.Ui.StaminaBar.Bar.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+game.Players.LocalPlayer.PlayerGui.UI.Ui.ManaBar.Bar.BackgroundColor3 = Color3.fromRGB(150, 0, 0)
+game.Players.LocalPlayer.PlayerGui.UI.Ui.Info.Attack.Text = "Attack:ERROR"
+game.Players.LocalPlayer.PlayerGui.UI.Ui.Info.Defense.Text = "Defense:ERROR"
+game.Players.LocalPlayer.PlayerGui.UI.Ui.StaminaBar.ImageLabel:Destroy()
+
+local FL = Instance.new("ScreenGui")
+local name = Instance.new("TextLabel")
+
+FL.Name = "FL"
+FL.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+FL.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+name.Name = "name"
+name.Parent = FL
+name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+name.BackgroundTransparency = 1.000
+name.Position = UDim2.new(0.0500000082, 0, 0.8056339, 0)
+name.Size = UDim2.new(0.301999986, 0, 0.0609754659, 0)
+name.Font = Enum.Font.Arcade
+name.Text = "Player"
+name.TextColor3 = Color3.fromRGB(255, 0, 0)
+name.TextScaled = true
+name.TextSize = 30.000
+name.TextStrokeTransparency = 0.000
+name.TextWrapped = true
+
+local function hit(hit, typ, effect, anime, sounde, velocity, damage)
+    
+    if game.Players.LocalPlayer.Backpack:WaitForChild("Main").LockOnScript.LockOn.Value == nil then return end
+    
+    local A_1 = getrenv()._G.Pass
+	local A_2 = game.Players.LocalPlayer.Backpack:WaitForChild("Main").LockOnScript.LockOn.Value
+	local A_3 = {
+		["HitTime"] = hit,
+		["Type"] = typ, 
+		["HitEffect"] = effect,
+		["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations[anime],
+		["CombatInv"] = true,
+		["Sound"] = sounde,
+		["Velocity"] = velocity,
+		["Damage"] = damage
+	}
+	local Event = game:GetService("ReplicatedStorage").Remotes.Damage
+	Event:InvokeServer(A_1, A_2, A_3)
+    
+end
+
+local function swing(color, cf)
+    
+    local A_1 = 
+		{
+			[1] = getrenv()._G.Pass, 
+			[2] = "SlashEffect", 
+			[3] = game:GetService("Players").LocalPlayer.Backpack.Main.AsrielMoves.ModuleScript.Animations.Slash.Swing1, 
+			[4] = color, 
+			[5] = cf
+		}
+	local Event = game:GetService("ReplicatedStorage").Remotes.Events
+	Event:FireServer(A_1)
+    
+end
+
+local function anim(id, speed)
+    
+    local animy = Instance.new("Animation")
+	animy.AnimationId = "rbxassetid://"..id
+	local anima = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(animy)
+	anima:Play()
+	anima:AdjustSpeed(speed)
+    
+end
+
+local function chat(text, com)
+    
+    local A_1 = {
+    	[1] = getrenv()._G.Pass,
+    	[2] = 'Chatted',
+    	[3] = text,
+    	[4] = Color3.new(1, 0, 0),
+    	[5] = com
+    }
+    local Target = game:GetService("ReplicatedStorage").Remotes.Events
+    Target:FireServer(A_1)
+    
+end
+
+for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+    
+    if v.Name == "BodyAura" or v.Name == "Trail" then
+        
+        v:Destroy()
+        
+    end
+    
+end
+
+local uis = game:GetService("UserInputService")
+local player = game.Players.LocalPlayer
+
+uis.InputBegan:Connect(function(inputs, event)
+	if event == true then return end
+    
+	if inputs.KeyCode == Enum.KeyCode.R then
+        
+		if player.Backpack:WaitForChild("Main").LockOnScript.LockOn.Value == nil then
+            
+			print("mouse cframe teleport")
+			
+			chat("[EXECUTE]\nPLAYER_TELEPORT", true)
+            
+			local cfr = player:GetMouse().Hit
+            
+			player.Character:SetPrimaryPartCFrame(cfr * CFrame.new(0, 3.5, 0))
+            
+		else
+            
+			print("player cframe teleport")
+			
+			chat("[EXECUTE]\nPLAYER_TELEPORT", true)
+            
+			local Tcf = player.Backpack:WaitForChild("Main").LockOnScript.LockOn.Value:GetPrimaryPartCFrame()
+            
+			player.Character:SetPrimaryPartCFrame(Tcf * CFrame.new(0, 0, 3))
+            
+		end
+        
+	end
+    
+end)
+
+local function tp()
+    
+    if game.Players.LocalPlayer.Backpack:WaitForChild("Main").LockOnScript.LockOn.Value == nil then return end
+    game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(game.Players.LocalPlayer.Backpack:WaitForChild("Main").LockOnScript.LockOn.Value:GetPrimaryPartCFrame() * CFrame.new(0, 0, -4))
+    
+end
+
+uis.InputBegan:Connect(function(key, event)
+    if event == true then return end
+    if debounce == true then return end
+    if game.Players.LocalPlayer.Backpack:WaitForChild("Main").LockOnScript.LockOn.Value == nil then return end
+    
+    if key.KeyCode == Enum.KeyCode.Z then
+        
+        debounce = true
+        
+        chat("[EXECUTE]\nTARGET_DESTROY", true)
+        if game.Players.LocalPlayer.Backpack:WaitForChild("Main").LockOnScript.LockOn.Value ~= nil then
+            local animy = Instance.new("Animation")
+            animy.AnimationId = "rbxassetid://3765380192"
+            local anima = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(animy)
+            anima:Play()
+            anima:AdjustSpeed(1)
+            tp()
+            hit(1, "Knockback", "KnifeHitEffect", "GutHurt", game.ReplicatedStorage.Sounds.BassDrop, Vector3.new(0, -0.05, 0), 40)
+            for i = 1, 10, 1 do
+                tp()
+                hit(1, "Knockback", "KnifeHitEffect", "GutHurt", game.ReplicatedStorage.RogueSounds.Poison, Vector3.new(0, -0.05, 0), 40)
+            end
+            anima:Stop()
+        end
+        
+        debounce = false
+        
+    end
+    
+end)
+
+uis.InputBegan:Connect(function(key, event)
+    if event == true then return end
+    if debounce == true then return end
+    if game.Players.LocalPlayer.Backpack:WaitForChild("Main").LockOnScript.LockOn.Value == nil then return end
+    
+    if key.KeyCode == Enum.KeyCode.X then
+        
+        debounce = true
+        
+        chat("[EXECUTE]\nTARGET_FREEZE", true)
+        local A_1 = getrenv()._G.Pass
+        local A_2 = game.Players.LocalPlayer.Backpack:WaitForChild("Main").LockOnScript.LockOn.Value
+        local A_3 = {
+        	["HitTime"] = 1, 
+        	["Type"] = "Knockback", 
+        	["HitEffect"] = "KnifeHitEffect", 
+        	["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.Stunned, 
+        	["CombatInv"] = true,
+        	["Sound"] = game:GetService("ReplicatedStorage").Sounds.TimeStop2, 
+        	["Damage"] = 0
+        }
+        local Event = game:GetService("ReplicatedStorage").Remotes.Damage
+        Event:InvokeServer(A_1, A_2, A_3)
+        
+        debounce = false
+        
+    end
+    
+end)
+
+uis.InputBegan:Connect(function(key, event)
+    if event == true then return end
+    if debounce == true then return end
+    if game.Players.LocalPlayer.Backpack:WaitForChild("Main").LockOnScript.LockOn.Value == nil then return end
+    
+    if key.KeyCode == Enum.KeyCode.C then
+        
+        debounce = true
+        
+        chat("[EXECUTE]\nTARGET_FLING", true)
+        hit(1, "Normal", "HeavyHitEffect", "Hurt3", game.ReplicatedStorage.Sounds.Knockback, Vector3.new(0, 0, 0), 0)
+        
+        debounce = false
+        
+    end
+    
+end)
+
+uis.InputBegan:Connect(function(key, event)
+    if event == true then return end
+    if debounce == true then return end
+    if game.Players.LocalPlayer.Backpack:WaitForChild("Main").LockOnScript.LockOn.Value == nil then return end
+    
+    if key.KeyCode == Enum.KeyCode.V then
+        
+        debounce = true
+        
+        chat("[EXECUTE]\nTARGET_SUFFER", true)
+        for i = 1, 10, 1 do
+            hit(1, "Normal", "YellowHitEffect", "SpGrab", game.ReplicatedStorage.Sounds.Kick, Vector3.new(0, -0.05, 0), 10)
+        end
+        hit(1, "Knockback", "HeavyHitEffect", "Knockback1", game.ReplicatedStorage.Sounds.Burst, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 200, 40)
+        
+        debounce = false
+        
+    end
+    
+end)
+
+uis.InputBegan:Connect(function(key, event)
+    if event == true then return end
+    if debounce == true then return end
+    if game.Players.LocalPlayer.Backpack:WaitForChild("Main").LockOnScript.LockOn.Value == nil then return end
+    
+    if key.KeyCode == Enum.KeyCode.B then
+        
+        debounce = true
+        
+        local animy = Instance.new("Animation")
+        animy.AnimationId = "rbxassetid://3765380192"
+        local anima = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(animy)
+        anima:Play()
+        anima:AdjustSpeed(1)
+        chat("Listen...", nil)
+        hit(1, "Normal", "KnifeHitEffect", "SpGrab", game.ReplicatedStorage.RogueSounds.Poison, Vector3.new(0, -0.05, 0), 0)
+        wait(1)
+        hit(1, "Normal", "KnifeHitEffect", "SpGrab", game.ReplicatedStorage.RogueSounds.Poison, Vector3.new(0, -0.05, 0), 0)
+        wait(1)
+        chat("Let's stop", nil)
+        hit(1, "Normal", "KnifeHitEffect", "SpGrab", game.ReplicatedStorage.RogueSounds.Poison, Vector3.new(0, -0.05, 0), 0)
+        wait(1)
+        hit(1, "Normal", "KnifeHitEffect", "SpGrab", game.ReplicatedStorage.RogueSounds.Poison, Vector3.new(0, -0.05, 0), 0)
+        wait(1)
+        chat("Please, reset...", nil)
+        hit(1, "Normal", "KnifeHitEffect", "SpGrab", game.ReplicatedStorage.RogueSounds.Poison, Vector3.new(0, -0.05, 0), 0)
+        wait(1)
+        hit(1, "Normal", "KnifeHitEffect", "SpGrab", game.ReplicatedStorage.RogueSounds.Poison, Vector3.new(0, -0.05, 0), 0)
+        wait(1)
+        repeat
+            hit(1, "Knockback", "KnifeHitEffect", "SpGrab", game.ReplicatedStorage.Sounds.Burst, Vector3.new(0, -0.05, 0), 40)
+        until game.Players.LocalPlayer.Backpack:WaitForChild("Main").LockOnScript.LockOn.Value == nil
+        anima:stop()
+        
+        debounce = false
+        
+    end
+    
+end)
+
+uis.InputBegan:Connect(function(key, event)
+    if event == true then return end
+    if debounce == true then return end
+    
+    if key.KeyCode == Enum.KeyCode.T then
+        
+        local targ = game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored
+        if targ == false then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+            chat("[EXECUTE]\nPLAYER_FREEZE", true)
+        else
+            game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+            chat("[EXECUTE]\nPLAYER_UNFREEZE", true)
+        end
+        
+    end
+    
+end)
+
+uis.InputBegan:Connect(function(key, event)
+    if event == true then return end
+    
+    if key.KeyCode == Enum.KeyCode.L then
+        
+        game.Players.LocalPlayer:WaitForChild("StarterPlaylist"):FindFirstChildOfClass("Sound").Volume = game.Players.LocalPlayer:WaitForChild("StarterPlaylist"):FindFirstChildOfClass("Sound").Volume + 0.1
+        
+    end
+    
+end)
+
+
+uis.InputBegan:Connect(function(key, event)
+    if event == true then return end
+    
+    if key.KeyCode == Enum.KeyCode.J then
+        
+        if game.Players.LocalPlayer:WaitForChild("StarterPlaylist"):FindFirstChildOfClass("Sound").Volume == 0 then return end
+        
+        game.Players.LocalPlayer:WaitForChild("StarterPlaylist"):FindFirstChildOfClass("Sound").Volume = game.Players.LocalPlayer:WaitForChild("StarterPlaylist"):FindFirstChildOfClass("Sound").Volume - 0.1
+        
+    end
+    
+end)
+
+uis.InputBegan:Connect(function(key, event)
+    if event == true then return end
+    
+    if key.KeyCode == Enum.KeyCode.K then
+        
+        if musicnum == 1 then
+            
+            musicnum = 2
+            game.Players.LocalPlayer:WaitForChild("StarterPlaylist"):FindFirstChildOfClass("Sound").SoundId = "rbxassetid://3040830180"
+            
+        elseif musicnum == 2 then
+            
+            musicnum = 3
+            game.Players.LocalPlayer:WaitForChild("StarterPlaylist"):FindFirstChildOfClass("Sound").SoundId = "rbxassetid://8433852526"
+            
+        elseif musicnum == 3 then
+            
+            musicnum = 1
+            game.Players.LocalPlayer:WaitForChild("StarterPlaylist"):FindFirstChildOfClass("Sound").SoundId = "rbxassetid://6480235155"
+            
+        end
+        
+    end
+    
+end)
+
+spawn(function()
+    local mt = getrawmetatable(game)
+    local backup = mt.__namecall
+    if setreadonly then setreadonly(mt, false) else make_writeable(mt, true) end
+    
+    mt.__namecall = newcclosure(function(...)
+        local method = getnamecallmethod()
+        local args = {...}
+        if tostring(args[1]) == "Events" then
+            
+            if tostring(args[2][2]) == "Chatted" then
+                
+                local prefix = "[Player]\n"
+                if tostring(args[2][5]) == "true" then
+                    prefix = ""
+                end
+                
+                args[2][3] = prefix..tostring(args[2][3])
+                args[2][4] = Color3.new(1, 0, 0)
+                
+            end
+            
+            return backup(unpack(args))
+        end
+        return backup(...)
+    end)
+end)
+
+game.Players.LocalPlayer.PlayerGui.UI.Ui.Settings.ImageButton.Visible = false
+local B_1 = {
+	[1] = getrenv()._G.Pass,
+	[2] = 'ChangeSetting',
+	[3] = 'DeathScene',
+	[4] = false
+}
+local Target = game:GetService("ReplicatedStorage").Remotes.Functions
+Target:InvokeServer(B_1)
+
+game.Workspace.ServerEffects.ServerCooldown:Destroy()
+game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:Destroy()
+
+debounce = false
+
+game.StarterGui:SetCore("SendNotification", {
+	Title = "the script is loaded";
+	Text = "made by just a tree#0556";
+	Duration = 5;
+})
+wait(5)
+game.StarterGui:SetCore("SendNotification", {
+	Title = "current version:";
+	Text = version;
+	Duration = 5;
+})
